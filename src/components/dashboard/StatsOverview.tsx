@@ -1,7 +1,7 @@
 import React from 'react';
 import { Incident } from '@/types/incident';
 import { getIncidentStats } from '@/lib/mock-data';
-import { AlertCircle, Clock, CheckCircle, Shield, Heart, TrendingUp } from 'lucide-react';
+import { AlertCircle, Clock, CheckCircle, Heart, TrendingUp } from 'lucide-react';
 
 interface StatsOverviewProps {
   incidents: Incident[];
@@ -61,10 +61,10 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ incidents }) => {
       <div className="col-span-2 lg:col-span-4 grid grid-cols-2 gap-4 mt-2">
         <div className="bg-gradient-police rounded-xl p-4 text-primary-foreground">
           <div className="flex items-center gap-3">
-            <Shield className="w-8 h-8" />
+            <AlertCircle className="w-8 h-8" />
             <div>
-              <p className="text-2xl font-bold">{stats.byType.police}</p>
-              <p className="text-sm opacity-80">Police Reports</p>
+              <p className="text-2xl font-bold">{stats.byType.accident}</p>
+              <p className="text-sm opacity-80">Accident Reports</p>
             </div>
           </div>
         </div>
@@ -72,8 +72,8 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ incidents }) => {
           <div className="flex items-center gap-3">
             <Heart className="w-8 h-8" />
             <div>
-              <p className="text-2xl font-bold">{stats.byType.ambulance}</p>
-              <p className="text-sm opacity-80">Medical Reports</p>
+              <p className="text-2xl font-bold">{stats.byType.medical}</p>
+              <p className="text-sm opacity-80">Medical Emergency</p>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Incident } from '@/types/incident';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, User, Shield, Heart, ChevronRight } from 'lucide-react';
+import { MapPin, Clock, AlertTriangle, Heart, ChevronRight } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 
 interface IncidentCardProps {
@@ -26,7 +26,7 @@ const IncidentCard: React.FC<IncidentCardProps> = ({ incident, onView, onUpdateS
     low: 'bg-muted text-muted-foreground',
   };
 
-  const TypeIcon = incident.type === 'police' ? Shield : Heart;
+  const TypeIcon = incident.type === 'accident' ? AlertTriangle : Heart;
 
   return (
     <div 
@@ -36,7 +36,7 @@ const IncidentCard: React.FC<IncidentCardProps> = ({ incident, onView, onUpdateS
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-3 flex-1">
           <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
-            incident.type === 'police' ? 'bg-primary/10 text-primary' : 'bg-emergency/10 text-emergency'
+            incident.type === 'accident' ? 'bg-warning/10 text-warning' : 'bg-emergency/10 text-emergency'
           }`}>
             <TypeIcon className="w-5 h-5" />
           </div>
@@ -52,7 +52,7 @@ const IncidentCard: React.FC<IncidentCardProps> = ({ incident, onView, onUpdateS
             </div>
             
             <p className="text-sm font-medium text-foreground mt-2 line-clamp-2">
-              {incident.description || `${incident.type === 'police' ? 'Police' : 'Medical'} incident reported`}
+              {incident.description || `${incident.type === 'accident' ? 'Accident' : 'Medical emergency'} reported`}
             </p>
             
             <div className="flex items-center gap-4 mt-3 text-xs text-muted-foreground">

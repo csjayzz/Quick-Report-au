@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { MapPin, Clock, User, Phone, Shield, Heart, X, CheckCircle } from 'lucide-react';
+import { MapPin, Clock, User, Phone, AlertTriangle, Heart, X, CheckCircle } from 'lucide-react';
 import { formatDistanceToNow, format } from 'date-fns';
 
 interface IncidentDetailProps {
@@ -40,7 +40,7 @@ const IncidentDetail: React.FC<IncidentDetailProps> = ({
     low: 'bg-muted text-muted-foreground',
   };
 
-  const TypeIcon = incident.type === 'police' ? Shield : Heart;
+  const TypeIcon = incident.type === 'accident' ? AlertTriangle : Heart;
 
   const getNextStatus = (): Incident['status'] | null => {
     switch (incident.status) {
@@ -64,7 +64,7 @@ const IncidentDetail: React.FC<IncidentDetailProps> = ({
           <div className="flex items-center justify-between">
             <DialogTitle className="flex items-center gap-2">
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                incident.type === 'police' ? 'bg-primary/10 text-primary' : 'bg-emergency/10 text-emergency'
+                incident.type === 'accident' ? 'bg-warning/10 text-warning' : 'bg-emergency/10 text-emergency'
               }`}>
                 <TypeIcon className="w-4 h-4" />
               </div>

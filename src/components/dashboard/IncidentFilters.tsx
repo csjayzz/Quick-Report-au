@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { IncidentStatus, IncidentType } from '@/types/incident';
-import { Filter, Shield, Heart, AlertCircle, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { Filter, Heart, AlertCircle, Clock, CheckCircle } from 'lucide-react';
 
 interface IncidentFiltersProps {
   statusFilter: IncidentStatus | 'all';
@@ -26,8 +26,8 @@ const IncidentFilters: React.FC<IncidentFiltersProps> = ({
 
   const typeOptions: { value: IncidentType | 'all'; label: string; icon: React.ReactNode }[] = [
     { value: 'all', label: 'All Types', icon: <Filter className="w-4 h-4" /> },
-    { value: 'police', label: 'Police', icon: <Shield className="w-4 h-4" /> },
-    { value: 'ambulance', label: 'Ambulance', icon: <Heart className="w-4 h-4" /> },
+    { value: 'accident', label: 'Accident', icon: <AlertCircle className="w-4 h-4" /> },
+    { value: 'medical', label: 'Medical', icon: <Heart className="w-4 h-4" /> },
   ];
 
   return (

@@ -1,4 +1,4 @@
-export type IncidentType = 'police' | 'ambulance';
+export type IncidentType = 'accident' | 'medical';
 
 export type IncidentStatus = 'new' | 'acknowledged' | 'in_progress' | 'resolved';
 
