@@ -72,7 +72,7 @@ const AuthorityDashboard: React.FC = () => {
                 <ShieldIcon className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="font-bold text-foreground">SafeAlert</h1>
+                <h1 className="font-bold text-foreground">Quick Report</h1>
                 <p className="text-xs text-muted-foreground">Authority Dashboard</p>
               </div>
             </div>

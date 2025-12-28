@@ -94,7 +94,7 @@ const ReportEmergency: React.FC = () => {
           <div className="max-w-md mx-auto space-y-6 animate-slide-up">
             <div className="text-center">
               <h1 className="text-2xl font-bold text-foreground mb-2">
-                {selectedType === 'police' ? 'Police Report' : 'Medical Emergency'}
+                {selectedType === 'accident' ? 'Accident Report' : 'Medical Emergency'}
               </h1>
               <p className="text-muted-foreground">
                 Add details to help responders
@@ -119,7 +119,7 @@ const ReportEmergency: React.FC = () => {
             <ImageCapture onImageCaptured={setImageFile} />
 
             <Button
-              variant={selectedType === 'police' ? 'police' : 'ambulance'}
+              variant={selectedType === 'accident' ? 'police' : 'ambulance'}
               size="lg"
               className="w-full"
               onClick={handleSubmit}
@@ -158,8 +158,8 @@ const ReportEmergency: React.FC = () => {
                   Report Submitted
                 </h2>
                 <p className="text-muted-foreground">
-                  {selectedType === 'police'
-                    ? 'Police have been notified and are responding.'
+                  {selectedType === 'accident'
+                    ? 'Emergency services have been notified and are responding.'
                     : 'Ambulance has been dispatched to your location.'}
                 </p>
               </div>

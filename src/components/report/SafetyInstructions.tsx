@@ -1,21 +1,21 @@
 import React from 'react';
 import { IncidentType } from '@/types/incident';
-import { AlertTriangle, CheckCircle, Shield, Heart } from 'lucide-react';
+import { AlertTriangle, CheckCircle, Car, Heart } from 'lucide-react';
 
 interface SafetyInstructionsProps {
   type: IncidentType;
 }
 
 const SafetyInstructions: React.FC<SafetyInstructionsProps> = ({ type }) => {
-  const policeInstructions = [
-    'Move to a safe location if possible',
-    'Do not confront any suspects',
-    'Note any vehicle details or descriptions',
-    'Stay on the line if emergency services call back',
-    'Keep doors locked if in a vehicle',
+  const accidentInstructions = [
+    'Move to a safe location away from traffic',
+    'Turn on hazard lights if vehicle is drivable',
+    'Do not move injured persons unless in immediate danger',
+    'Note vehicle details and take photos if safe',
+    'Call 112 for emergency services',
   ];
 
-  const ambulanceInstructions = [
+  const medicalInstructions = [
     'Check if the scene is safe before approaching',
     'If victim is unconscious, check for breathing',
     'Do not move the person unless absolutely necessary',
@@ -24,15 +24,15 @@ const SafetyInstructions: React.FC<SafetyInstructionsProps> = ({ type }) => {
     'If trained, begin CPR if no pulse is detected',
   ];
 
-  const instructions = type === 'police' ? policeInstructions : ambulanceInstructions;
-  const Icon = type === 'police' ? Shield : Heart;
-  const title = type === 'police' ? 'Police Safety Tips' : 'Medical Safety Tips';
+  const instructions = type === 'accident' ? accidentInstructions : medicalInstructions;
+  const Icon = type === 'accident' ? Car : Heart;
+  const title = type === 'accident' ? 'Accident Safety Tips' : 'Medical Safety Tips';
 
   return (
     <div className="bg-card rounded-2xl border border-border p-6 animate-slide-up">
       <div className="flex items-center gap-3 mb-4">
         <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-          type === 'police' ? 'bg-primary/10 text-primary' : 'bg-emergency/10 text-emergency'
+          type === 'accident' ? 'bg-warning/10 text-warning' : 'bg-emergency/10 text-emergency'
         }`}>
           <Icon className="w-5 h-5" />
         </div>
