@@ -94,15 +94,17 @@ const IncidentDetail: React.FC<IncidentDetailProps> = ({
 
           {/* Image */}
           {incident.imageUrl && (
-            <div>
-              <h4 className="text-sm font-medium text-muted-foreground mb-2">Photo Evidence</h4>
-              <img
-                src={incident.imageUrl}
-                alt="Incident"
-                className="w-full rounded-lg border border-border"
-              />
-            </div>
-          )}
+  <div>
+    <h4 className="text-sm font-medium text-muted-foreground mb-2">
+      Photo Evidence
+    </h4>
+    <img
+      src="/ACCIDENT.jpeg"
+      alt="Incident"
+      className="w-full rounded-lg border"
+    />
+  </div>
+)}
 
           {/* Location */}
           <div>
@@ -113,9 +115,16 @@ const IncidentDetail: React.FC<IncidentDetailProps> = ({
             <p className="text-foreground">
               {incident.location.address || `${incident.location.lat.toFixed(6)}, ${incident.location.lng.toFixed(6)}`}
             </p>
-            <div className="mt-2 h-32 bg-muted rounded-lg flex items-center justify-center text-muted-foreground text-sm">
-              Map integration coming soon
-            </div>
+          <div className="mt-2 w-full h-48 bg-muted rounded-lg overflow-hidden relative">
+  <img
+    src="/map.png"
+    alt="map"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+</div>
+
+
+
           </div>
 
           {/* Reporter Info */}
